@@ -3,7 +3,6 @@
     <button>Click!</button>
     <script>
       function startGame() {
-
           
           <!-- console.log('game is starting'); -->
           
@@ -11,16 +10,19 @@
 
           document.querySelector('button').addEventListener('click', () => {++counter;});
 
-          setTimeout(()=> {
-            if(counter>3) {
-              alert('you won! your clicks: ' + counter);
-            } else {
-              alert('sorry, you lost');
-            }
-          }, 2000)
+          return new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+              if (counter>3) {
+                resolve();
+              } else {
+                reject();
+              }
+            },2000)
+          });
+          
       }
      
-      startGame();
+      startGame().then(()=>alert('you won!')).catch(()=>alert('you lost!'));
 
     </script>
   </body>
