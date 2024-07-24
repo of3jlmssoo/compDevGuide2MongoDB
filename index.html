@@ -1,20 +1,26 @@
 <head>
   <body>
     <button>Click!</button>
-
     <script>
-      <!-- console.log('game is starting'); -->
-      let counter = 0;
+      function startGame() {
 
-      document.querySelector('button').addEventListener('click', () => {++counter;});
+          
+          <!-- console.log('game is starting'); -->
+          
+          let counter = 0;
 
-      setTimeout(()=> {
-        if(counter>3) {
-          alert('you won! your clicks: ' + counter);
-        } else {
-          alert('sorry, you lost');
-        }
-      }, 2000)
+          document.querySelector('button').addEventListener('click', () => {++counter;});
+
+          setTimeout(()=> {
+            if(counter>3) {
+              alert('you won! your clicks: ' + counter);
+            } else {
+              alert('sorry, you lost');
+            }
+          }, 2000)
+      }
+     
+      startGame();
 
     </script>
   </body>
