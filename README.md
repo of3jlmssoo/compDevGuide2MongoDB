@@ -1,5 +1,14 @@
 # compDevGuide2MongoDB
 
+## test
+```text
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+      |
+      V
+    "test": "mocha"
+
+```
 
 ### commands
 ```text
