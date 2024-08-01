@@ -59,7 +59,7 @@ describe("Updating records", () => {
   });
   it("2nd : A user can have their postcount incremented by 1", (done) => {
     // User.findOneAndUpdate({ name: "Joe" }, { name: "Alex" }).then((user) => {
-    User.findOneAndUpdate({ name: "Joe" }, { $inc: {postCount:10} }).then((user) => {
+    User.findOneAndUpdate({ name: "Joe" }, { $inc: { postCount: 10 } }).then((user) => {
       user.save();
       // done();
       User.findOne({ _id: joe._id }).then((user) => {
