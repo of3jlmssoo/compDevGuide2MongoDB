@@ -23,7 +23,7 @@ describe("Validating Records", () => {
     assert(message === "Name must be longer than 2 characters.");
   });
 
-  it.only("unable to save invalid records", (done) => {
+  it("unable to save invalid records", (done) => {
     const user = new User({ name: "Jo" });
     user.save().catch((validationResult) => {
       // console.log("==> ", validationResult.errors.name.message);
