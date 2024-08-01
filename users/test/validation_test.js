@@ -3,7 +3,7 @@ const User = require("../src/user");
 // const { default: mongoose } = require("mongoose");
 
 describe("Validating Records", () => {
-  it.only("a user name required", () => {
+  it("a user name required", () => {
     const user = new User({ name: undefined });
     // const user = new User({ name: "Joe" });
 
@@ -12,6 +12,14 @@ describe("Validating Records", () => {
 
     // console.log("==> ", validationResult.errors.name.message);
     const { message } = validationResult.errors.name;
-    assert(message === 'name is required.' );
+    assert(message === "name is required.");
+  });
+
+  it.only("user name length check", () => {
+    const user = new User({ name: "Jo" });
+
+    const validationResult = user.validateSync();
+    const { message } = validationResult.errors.name;
+    assert(message === 'Name must be longer than 2 characters.');
   });
 });
