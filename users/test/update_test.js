@@ -47,7 +47,9 @@ describe("Updating records", () => {
     assertName(User.findByIdAndUpdate(joe._id, { name: "Alex" }), done);
   });
 
-  it("1st : A user can have their postcount incremented by 1", (done) => {
+
+  // postCountをvirtual typeにするのでアップデートは行わない
+  xit("1st : A user can have their postcount incremented by 1", (done) => {
     // User.findOneAndUpdate({ name: "Joe" }, { name: "Alex" }).then((user) => {
     User.findOneAndUpdate({ name: "Joe" }, { postCount: 2 }).then((user) => {
       user.save();
@@ -59,7 +61,7 @@ describe("Updating records", () => {
       });
     });
   });
-  it("2nd : A user can have their postcount incremented by 1", (done) => {
+  xit("2nd : A user can have their postcount incremented by 1", (done) => {
     // User.findOneAndUpdate({ name: "Joe" }, { name: "Alex" }).then((user) => {
     User.findOneAndUpdate({ name: "Joe" }, { $inc: { postCount: 10 } }).then((user) => {
       user.save();

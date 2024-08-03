@@ -24,7 +24,8 @@ describe("Updating records", () => {
   //     });
   // }
 
-  it("promise test", () =>
+  // do not update postCount after postCount became virtual type
+  xit("promise test", () =>
     User.findOneAndUpdate({ name: "Joe" }, { postCount: 7 })
       .then(() => User.findOne({ name: "Joe" }))
       .then((user) => {
