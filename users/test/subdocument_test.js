@@ -3,7 +3,9 @@ const User = require("../src/user");
 // const { default: mongoose } = require("mongoose");
 
 describe("Subdocuments test", () => {
-  it.only("can create a subdocument", (done) => {
+
+
+  it("1 can create a subdocument", (done) => {
     const joe = new User({ name: "Joe", posts: [{ title: "PostTitle title" }] });
     joe
       .save()
@@ -13,4 +15,27 @@ describe("Subdocuments test", () => {
         done();
       });
   });
+
+  it("2 Can add subdocuments to an existing record", (done) => {
+    const joe = new User({
+      name: "Joe",
+      posts: [],
+    });
+
+    joe
+      .save()
+      .then(() => User.findOne({ name: "Joe" }))
+      .then((user) => {
+        user.posts.push({ title: "New Post!" });
+        return user.save();
+      })
+      .then(() => User.findOne({ name: "Joe" }))
+      .then((user) => {
+        // console.log(user.posts[0].title);
+        assert(user.posts[0].title === "New Post!");
+        done();
+      });
+  });
+
+
 });
