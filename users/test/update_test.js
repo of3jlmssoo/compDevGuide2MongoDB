@@ -17,7 +17,8 @@ describe("Updating records", () => {
     operation
       .then(() => User.find({}))
       .then((users) => {
-        // console.log(users);
+        // console.log("---------------\n", users, "---------------\n");
+        // log.console("length ", users.length, " ", users[0].name);
         assert(users.length === 1);
         assert(users[0].name === "Alex");
         done();
@@ -27,6 +28,7 @@ describe("Updating records", () => {
   it("instance type using set n save", (done) => {
     joe.set("name", "Alex");
     assertName(joe.save(), done);
+    done();
   });
 
   it("model instance can update", (done) => {
