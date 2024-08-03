@@ -43,7 +43,7 @@ describe("Subdocuments test", () => {
       posts: [{title:'new title'}]
     });
 
-    console.log('-------');
+    // console.log('-------');
 
     joe.save()
       .then(()=>User.findOne({name:'Joe'}))
