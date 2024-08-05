@@ -25,12 +25,12 @@ describe("Updating records", () => {
   // }
 
   // do not update postCount after postCount became virtual type
-  xit("promise test", () =>
-    User.findOneAndUpdate({ name: "Joe" }, { postCount: 7 })
+  it("promise test", () =>
+    User.findOneAndUpdate({ name: "Joe" }, { likes: 7 })
       .then(() => User.findOne({ name: "Joe" }))
       .then((user) => {
         // console.log(user);
-        assert.equal(user.postCount, 7);
+        assert.equal(user.likes, 7);
         // return user.destroy() // <- このPromiseが戻り値になる
       }));
 });

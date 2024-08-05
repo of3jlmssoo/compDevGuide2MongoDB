@@ -12,10 +12,11 @@ const UserSchema = new Schema({
     required: [true, "name is required."],
   },
   // postCount: Number,
-  posts: [PostSchema]
+  posts: [PostSchema],
+  likes: Number,
 });
 
-UserSchema.virtual('postCount').get(function() {
+UserSchema.virtual("postCount").get(function () {
   // console.log('hello world!');
   return this.posts.length;
 });

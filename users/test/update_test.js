@@ -49,26 +49,27 @@ describe("Updating records", () => {
 
 
   // postCountをvirtual typeにするのでアップデートは行わない
-  xit("1st : A user can have their postcount incremented by 1", (done) => {
+  it("1st : A user can have their postcount incremented by 1", (done) => {
     // User.findOneAndUpdate({ name: "Joe" }, { name: "Alex" }).then((user) => {
-    User.findOneAndUpdate({ name: "Joe" }, { postCount: 2 }).then((user) => {
+    // User.findOneAndUpdate({ name: "Joe" }, { postCount: 2 }).then((user) => {
+    User.findOneAndUpdate({ name: "Joe" }, { likes: 2 }).then((user) => {
       user.save();
       // done();
       User.findOne({ _id: joe._id }).then((user) => {
         // console.log(user.postCount);
-        assert(user.postCount === 2);
+        assert(user.likes === 2);
         done();
       });
     });
   });
-  xit("2nd : A user can have their postcount incremented by 1", (done) => {
+  it("2nd : A user can have their postcount incremented by 1", (done) => {
     // User.findOneAndUpdate({ name: "Joe" }, { name: "Alex" }).then((user) => {
-    User.findOneAndUpdate({ name: "Joe" }, { $inc: { postCount: 10 } }).then((user) => {
+    User.findOneAndUpdate({ name: "Joe" }, { $inc: { likes: 10 } }).then((user) => {
       user.save();
       // done();
       User.findOne({ _id: joe._id }).then((user) => {
         // console.log(user.postCount);
-        assert(user.postCount === 10);
+        assert(user.likes === 10);
         done();
       });
     });
