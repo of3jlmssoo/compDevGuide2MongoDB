@@ -5,14 +5,16 @@ module.exports = {
     res.send({ hi: "there via greeting" });
   },
 
-  create(req, res) {
+  create(req, res, next) {
     // console.log(req.body);
     // res.send({hi:'there via create'});
     const driveProps = req.body;
-    Driver.create(driveProps).then((driver) => {
-      // console.log(driver);
-      // return the created object via res.send 
-      res.send(driver);
-    });
+    Driver.create(driveProps)
+      .then((driver) => {
+        // console.log(driver);
+        // return the created object via res.send
+        res.send(driver);
+      })
+      .catch(next);
   },
 };
