@@ -1,3 +1,4 @@
+126 delete a user
 124
 122
 119 postman deprecated -> vscode Thunder Client

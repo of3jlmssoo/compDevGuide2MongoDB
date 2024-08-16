@@ -5,8 +5,7 @@ module.exports = (app) => {
   //   res.send({ hi: "there" });
   // });
   app.get("/api", DriverController.greeting);
-
   app.post("/api/drivers", DriverController.create);
-
   app.put("/api/drivers/:id", DriverController.edit);
+  app.delete("/api/drivers/:id", DriverController.delete);
 };
