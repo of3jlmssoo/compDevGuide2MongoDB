@@ -8,3 +8,12 @@
   119 vscode thunder client instead of postman
 
 118
+
+
+
+https://mongoosejs.com/docs/geojson.html は無事作動
+  $geoWithin 
+    $geometry
+
+  where().within()
+https://thecodebarbarian.com/80-20-guide-to-mongodb-geospatial-queriesはエラー

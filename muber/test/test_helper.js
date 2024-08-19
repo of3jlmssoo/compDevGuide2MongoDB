@@ -10,9 +10,17 @@ before((done) => {
 });
 
 beforeEach((done) => {
-  const { drivers } = mongoose.connection.collections;
-  drivers
+  const { cities } = mongoose.connection.collections;
+  cities
     .drop()
     .then(() => done())
     .catch(() => done());
 });
+
+// users.drop(() => {
+//     comments.drop(() => {
+//       blogposts.drop(() => {
+//         done();
+//       });
+//     });
+//   });
